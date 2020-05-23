@@ -13,8 +13,6 @@ nav {
 
 nav ul{
 	list-style: none;
-	
-	border-radius:10px;
 }
 
 nav a {
@@ -58,5 +56,4 @@ nav > ul > li ul > li > ul {
 	transform: scaleX(0);
 	transform-origin: left;
 	min-width: unset;
-	border-radius:10px;
 }
