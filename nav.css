@@ -13,6 +13,8 @@ nav {
 
 nav ul{
 	list-style: none;
+	
+	border-radius:10px;
 }
 
 nav a {
@@ -20,8 +22,10 @@ nav a {
 	font-size: 24px;
 	color: #aaa;
 	text-decoration: none;
-	background-color: black;
 	transition: background 0.2s;
+	border-radius:10px;
+	background-color: black;
+	margin:1px
 }
 
 nav a:hover {
@@ -36,12 +40,12 @@ nav > ul li > ul {
 	flex-direction:column;
 	position:absolute;
 	height:auto;
-	width: 100%;
+	width: max-content;
+	min-width: 100%;
 	top:100%;
 	transform-origin:top;
 	transform: scaleY(0);
 	transition: transform 0.2s;
-	border-radius:0 0 5px 5px;
 }
 
 nav > ul li:hover > ul {
@@ -53,4 +57,6 @@ nav > ul > li ul > li > ul {
 	left:100%;
 	transform: scaleX(0);
 	transform-origin: left;
+	min-width: unset;
+	border-radius:10px;
 }
