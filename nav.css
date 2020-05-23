@@ -5,9 +5,10 @@
 
 nav {
 	width: 100%;
-	height: 60px;
+	height: 64px;
 	background-color:black;
 	position: relative;
+	font:menu;
 }
 
 nav ul li {
@@ -17,7 +18,6 @@ nav ul li {
 
 nav ul li a {
 	display:block;
-	font: arial;
 	font-size: 24px;
 	color: #aaa;
 	text-decoration: none;
@@ -27,6 +27,8 @@ nav ul li a {
 nav ul li ul {
 	position: absolute;
 	display: none;
+	background-color: #444;
+	padding: 2px 0px;
 }
 
 nav ul li:hover ul{
@@ -34,13 +36,13 @@ nav ul li:hover ul{
 }
 
 nav ul li ul li {
-	background-color: #444;
 	float:none;
-	padding: 2 2
+	padding: 2px 4px;
 }
 
 nav ul li ul li a {
-	padding: 5px 11px;
+	padding: 5px 10px;
+	background-color:black
 }
 
 nav ul li ul li a:hover {
