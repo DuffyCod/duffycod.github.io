@@ -2,20 +2,24 @@
 	<head>
 		<title>DuffyCod's Webpage</title>
 		<style>
-			*{
+			body, body * {
+                display:flex;
+                flex-direction:column;
 				margin: 0;
 				padding: 0;
 			}
 
-			section.main_section {
-				display:flex;
+			.main_section {
 				justify-content: center;
 				align-items: center;
+                overflow: overlay;
+                background: #eee;
+                flex: 1 1;
 			}
 
 			.main_section h1 {
 				font-family: Lucida Console;
-				font-size: 40px;
+				font-size: 50px;
 			}
 		</style>
 		<link rel="stylesheet" type="text/css" href="nav.css">
@@ -24,28 +28,39 @@
 	<body>
 		<nav>
 			<ul>
-				<li><a href = "#">Link 1</a></li>
-				<li><a href = "#">Link 2</a>
+				<li><a href="#">Link 1</a></li>
+				<li><a href="#">Link 2</a>
 					<ul>
-						<li><a href = "#">Link 2.1</a></li>
-						<li><a href = "#">Link 2.2</a></li>
-						<li><a href = "#">Link 2.3</a></li>
+						<li><a href="#">Link 2.1</a></li>
+						<li><a href="#">Link 2.2</a>
+						    <ul>
+						        <li><a href="#">Link 2.2.1</a>
+							    	<ul>
+							        	<li><a href="#">Link 2.2.1.1</a></li>
+							   		</ul>
+								</li>
+								<li><a href="#">Link 2.2.2</a></li>
+						    </ul>
+						</li>
+						<li><a href="#">Link 2.3</a></li>
 					</ul>
 				</li>
-				<li><a href = "#">Link 3</a>
+				<li><a href="#">Link 3</a>
 					<ul>
-						<li><a href = "#">Link 3.1</a></li>
-						<li><a href = "#">Link 3.2</a></li>
+						<li><a href="#">Link 3.1</a></li>
+						<li><a href="#">Link 3.2</a></li>
 					</ul>
 				</li>
-				<li><a href = "#">Link 4</a></li>
+				<li><a href="#">Link 4</a></li>
 			</ul>
 		</nav>
 
-		<section class = "main_section">
-			<div>
-				<h1>Hello World!</h1>
+		<section class="main_section">
+			<div style="flex:1 1;justify-content: center;align-items:center">
+				<h1 style="padding: 30px 0px;">Hello World!</h1>
+    <p> This is my first GitHub page! </p>
 			</div>
 		</section>
-	</body>
-</html>
+	
+
+</body></html>

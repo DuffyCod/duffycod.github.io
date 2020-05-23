@@ -1,18 +1,21 @@
-nav {
+nav * {
 	margin: 0;
 	padding: 0;
-	width: 100%;
+	display:flex;
+	flex-direction:row;
+	flex: 1 1;
+}
+
+nav {
 	position: relative;
 	font:menu;
 }
 
 nav ul{
 	list-style: none;
-	display:flex;
 }
 
 nav a {
-	display: flex;
 	padding: 0.5em 10px;
 	font-size: 24px;
 	color: #aaa;
@@ -25,27 +28,29 @@ nav a:hover {
     background-color: gray;
 }
 
-nav > ul > li {
-	width: 100%;
+nav > ul li {
 	position:relative;
 }
 
-nav > ul > li > ul {
-	display:flex;
+nav > ul li > ul {
 	flex-direction:column;
-	max-height: 0vh;
 	position:absolute;
-	width:100%;
-	overflow:hidden;
-	transition: max-height 0.4s;
+	height:auto;
+	width: 100%;
+	top:100%;
+	transform-origin:top;
+	transform: scaleY(0);
+	transition: transform 0.2s;
 	border-radius:0 0 5px 5px;
 }
 
-nav > ul > li:hover > ul {
-	max-height: 50vh;
+nav > ul li:hover > ul {
+	transform: scale(1);
 }
 
-nav > ul > li > ul > li {
-	width: 100%;
-	position:relative;
+nav > ul > li ul > li > ul {
+	top: 0%;
+	left:100%;
+	transform: scaleX(0);
+	transform-origin: left;
 }
