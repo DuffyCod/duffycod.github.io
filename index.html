@@ -19,37 +19,42 @@
 				font-family: Lucida Console;
 				font-size: 50px;
 			}
+
+			script, style {
+				display:none;
+			}
 		</style>
 		<link rel="stylesheet" type="text/css" href="nav.css">
+		<meta charset="utf-8">
 	</head>
 
 	<body>
 		<nav>
 			<ul>
-				<li style=""><a href="#">Link 1</a></li>
-				<li style=""><a href="#">Link 2</a>
+				<li><a href="#">Link 1</a></li>
+				<li><a href="#">Link 2<div>&#x2B9F</div></a>
 					<ul>
-						<li style="--anim-index:0;"><a href="#">Link 2.1</a></li>
-						<li style="--anim-index:1;"><a href="#">Link 2.2</a>
+						<li><a href="#">Link 2.1</a></li>
+						<li><a href="#">Link 2.2<div>&#x2B9E</div></a>
 						    <ul>
-						        <li style="--anim-index:0;"><a href="#">Link 2.2.1</a>
+						        <li><a href="#">Link 2.2.1<div>&#x2B9E</div></a>
 							    	<ul>
-							        	<li style="--anim-index:0;"><a href="#">Link 2.2.1.1</a></li>
+							        	<li><a href="#">Link 2.2.1.1</a></li>
 							   		</ul>
 								</li>
-								<li style="--anim-index:1;"><a href="#">Link 2.2.2</a></li>
+								<li><a href="#">Link 2.2.2</a></li>
 						    </ul>
 						</li>
-						<li style="--anim-index:2;"><a href="#">Link 2.3</a></li>
+						<li><a href="#">Link 2.3</a></li>
 					</ul>
 				</li>
-				<li style=""><a href="#">Link 3</a>
+				<li><a href="#">Link 3<div>&#x2B9F</div></a>
 					<ul>
-						<li style="--anim-index:0;"><a href="#">Link 3.1</a></li>
-						<li style="--anim-index:1;"><a href="#">Link 3.2</a></li>
+						<li><a href="#">Link 3.1</a></li>
+						<li><a href="#">Link 3.2</a></li>
 					</ul>
 				</li>
-				<li style=""><a href="#">Link 4</a></li>
+				<li><a href="#">Link 4</a></li>
 			</ul>
 		</nav>
 
@@ -65,7 +70,7 @@
 			    	Some article might go here.
 				</div>
 
-				<style style="display: none;">
+				<style>
 				    .tile-item {
 				        width: 100%;
 				        height:100px;
@@ -99,18 +104,33 @@
 					<div class="tile-item">
 					     Some tile.
 					</div>
+					<div class="tile-item">
+					     Some tile.
+					</div>
 				</div>
 			</div>
     	</section>
+    	
         <script>
-            function assignAnim() {
-                var lists = document.querySelectorAll("nav ul li > ul");
-                for(let l = 0;l < lists.length;l++) {
-                    var elements = lists[l].querySelectorAll(":scope > li");
-                    for(let i = 0;i < elements.length;i++) {
-                        elements[i].style["cssText"] += ";--anim-index:" + i + ";";
-                    }
-                }
+            var menus = document.querySelectorAll("nav > ul ul");
+			for(let l = 0;l < menus.length;l++) {
+				let elements = menus[l].children;
+				for(let i = 0;i < elements.length;i++) {
+					elements[i].style["cssText"] = "--anim-index:" + i + ";";
+				}
+			}
+
+            
+            document.onclick = function (event) {
+            	for(let i = 0;i < menus.length;i++) {
+            		if(!menus[i].contains(event.target)){
+						if(menus[i].parentElement.contains(event.target)){
+							menus[i].parentElement.classList.toggle("drop");
+						}else{
+							menus[i].parentElement.classList.remove("drop");
+						}
+            		}
+            	}
             }
         </script>
     </body>
