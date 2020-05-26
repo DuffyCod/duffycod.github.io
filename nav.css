@@ -4,11 +4,19 @@ nav * {
 	display:flex;
 	flex-direction:row;
 	flex: 1 1;
+	border-style: none;
+	border-width: 1px;
 }
 
 nav {
-	position: relative;
+	position: fixed;
+	width:100%;
 	font:menu;
+	background-color: #fffa;
+	border-color:black;
+	border-style:solid;
+	border-width: 0px 0 2px 0;
+	border-radius:5px;
 }
 
 nav ul{
@@ -20,30 +28,33 @@ nav a {
 	align-items:flex-start;
 	padding: 0.5em 10px;
 	font-size: 24px;
-	color: #aaa;
+	color: white;
 	text-decoration: none;
 	transition: background 0.2s;
-	border-radius:10px;
-	background-color: black;
-	margin:1px;
+	border-radius:30px 0 30px 0;
+	background-color: #0008;
+	margin:4px;
 	cursor:pointer;
 	user-select: none;
 }
 
 nav a:hover {
-    background-color: gray;
+    background-color: #5eb9;
 }
 
-nav a div {
+nav li a div {
+	transform-origin: calc(100% - 0.5em);
+	transform: none;
 	justify-content:flex-end;
 	padding:0 0 0 0.5em;
+	transition: transform 0.3s;
 }
 
-nav > ul li {
+nav li {
 	position:relative;
 }
 
-nav > ul li > ul {
+nav ul ul {
 	flex-direction:column;
 	position:absolute;
 	height:auto;
@@ -53,24 +64,35 @@ nav > ul li > ul {
     pointer-events: none;
 }
 
-nav > ul li > ul > li {
-	transform-origin:center;
-	transform: rotateZ(45deg);
-	opacity: 0;
-	transition: all 200ms calc(var(--anim-index) * 80ms);
-}
-
-nav > ul > li ul > li > ul {
+nav ul ul ul {
 	top: 0%;
 	left:100%;
 	min-width: unset;
 }
 
-nav > ul li.drop > ul {
+nav li.drop > ul {
     pointer-events: visible;
 }
 
-nav > ul li.drop > ul > li {
+nav ul ul > li {
+	transform-origin:center;
+	transform: 
+	    translateY(calc(-100% * (var(--anim-index)))) 
+	    scale(0.8);
+	opacity: 0;
+	transition: all 200ms calc(var(--anim-index) * 100ms);
+}
+
+nav li.drop > ul > li {
 	transform: none;
 	opacity: 100%;
+	transition: all 200ms calc(var(--anim-reverse-index) * 100ms);
+}
+
+nav li.drop > a > div {
+	transform: rotateX(180deg);
+}
+
+nav li.drop li.drop > a > div {
+	transform: rotateY(180deg);
 }

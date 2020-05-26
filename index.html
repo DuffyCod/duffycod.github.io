@@ -2,16 +2,19 @@
     <head>
 		<title>DuffyCod's Webpage</title>
 		<style>
-			body, body * {
+			body , body * {
                 display:flex;
                 flex-direction:column;
 				margin: 0;
 				padding: 0;
 			}
 
+			body {
+				background: #eee
+			}
+
 			.main_section {
                 overflow: overlay;
-                background: #eee;
                 flex: 1 1;
 			}
 
@@ -32,12 +35,12 @@
 		<nav>
 			<ul>
 				<li><a href="#">Link 1</a></li>
-				<li><a href="#">Link 2<div>&#x2B9F</div></a>
+				<li><a>Link 2<div>&#x2B9F</div></a>
 					<ul>
 						<li><a href="#">Link 2.1</a></li>
-						<li><a href="#">Link 2.2<div>&#x2B9E</div></a>
+						<li><a>Link 2.2<div>&#x2B9E</div></a>
 						    <ul>
-						        <li><a href="#">Link 2.2.1<div>&#x2B9E</div></a>
+						        <li><a>Link 2.2.1<div>&#x2B9E</div></a>
 							    	<ul>
 							        	<li><a href="#">Link 2.2.1.1</a></li>
 							   		</ul>
@@ -48,7 +51,7 @@
 						<li><a href="#">Link 2.3</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Link 3<div>&#x2B9F</div></a>
+				<li><a>Link 3<div>&#x2B9F</div></a>
 					<ul>
 						<li><a href="#">Link 3.1</a></li>
 						<li><a href="#">Link 3.2</a></li>
@@ -59,14 +62,31 @@
 		</nav>
 
 		<section class="main_section">
-			<div style="flex: 0.5 1;justify-content: center;align-items:center;padding: 20px;min-height: calc(100vh - 40px - 3.5em);">
+			<div style="
+					flex: 0.5 1;
+					justify-content: center;
+					align-items:center;
+					padding: 20px;
+					min-height: calc(100vh - 100px);
+					margin: 60px 0 0px 0;
+			        ">
 				
 				<h1 style="padding: 30px 0px;">Hello World!</h1>
     			<p> This is my first GitHub page! </p>
 			</div>
 
-			<div style="flex-direction:row;justify-content: left;flex:1 1;">
-			    <div style="flex: 0.8 1;background: white;margin: 20px;border-radius: 10px;padding: 10px;">
+			<div style="
+			        flex-direction:row;
+			        justify-content: left;
+			        flex:1 1;
+			        ">
+			    <div style="
+			        flex: 0.8 1;
+			        background: white;
+			        margin: 10px;
+			        border-radius: 10px;
+			        padding: 10px;
+			        ">
 			    	Some article might go here.
 				</div>
 
@@ -81,7 +101,9 @@
 				    }
 				</style>
 
-				<div style="flex: 0.2 1;margin: 20px;">
+				<div style="
+				    flex: 0.2 1;
+				    margin: 10px;">
 				    A sidebar here.
 				    <div class="tile-item">
 				    	Some tile.
@@ -116,24 +138,25 @@
 			for(let l = 0;l < menus.length;l++) {
 				let elements = menus[l].children;
 				for(let i = 0;i < elements.length;i++) {
-					elements[i].style["cssText"] = "--anim-index:" + i + ";";
+					elements[i].style.setProperty("--anim-index", i);
+					elements[i].style.setProperty("--anim-reverse-index", elements.length - i - 1);
 				}
 			}
 
             
             document.onclick = function (event) {
             	let toggleElement = event.target.closest("nav li");
-            	if(toggleElement)
+            	if(toggleElement) {
             	   if(!toggleElement.querySelector("ul"))
-            	    toggleElement = null;
-                
+            	       toggleElement = null;
+            	   else
+            	       toggleElement.classList.toggle("drop");
+            	}
+
                 for(let i = 0;i < menus.length;i++) {
-					if(!toggleElement || (!menus[i].contains(toggleElement)))
+					if(!toggleElement || (!menus[i].contains(toggleElement) && menus[i].parentElement != toggleElement))
 						menus[i].parentElement.classList.remove("drop");
 				}
-                if(toggleElement){
-					toggleElement.classList.toggle("drop");
-                }
             }
         </script>
     </body>
