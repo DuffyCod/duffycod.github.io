@@ -122,15 +122,18 @@
 
             
             document.onclick = function (event) {
-            	for(let i = 0;i < menus.length;i++) {
-            		if(!menus[i].contains(event.target)){
-						if(menus[i].parentElement.contains(event.target)){
-							menus[i].parentElement.classList.toggle("drop");
-						}else{
-							menus[i].parentElement.classList.remove("drop");
-						}
-            		}
-            	}
+            	let toggleElement = event.target.closest("nav li");
+            	if(toggleElement)
+            	   if(!toggleElement.querySelector("ul"))
+            	    toggleElement = null;
+                
+                for(let i = 0;i < menus.length;i++) {
+					if(!toggleElement || (!menus[i].contains(toggleElement)))
+						menus[i].parentElement.classList.remove("drop");
+				}
+                if(toggleElement){
+					toggleElement.classList.toggle("drop");
+                }
             }
         </script>
     </body>

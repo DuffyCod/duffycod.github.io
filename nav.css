@@ -27,6 +27,7 @@ nav a {
 	background-color: black;
 	margin:1px;
 	cursor:pointer;
+	user-select: none;
 }
 
 nav a:hover {
