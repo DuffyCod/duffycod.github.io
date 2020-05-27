@@ -6,34 +6,150 @@ nav * {
 	flex: 1 1;
 	border-style: none;
 	border-width: 1px;
+	border-color:white;
 }
 
 nav {
+	--border_rad: 25px;
+	--border_width: 2px;
+	--anim-delay: 50ms;
+	--anim-dur: 200ms;
 	position: fixed;
 	width:100%;
+	min-width: max-content;
 	font:menu;
+	font-size: 1.25rem;
 	background-color: #fffa;
 	border-color:black;
 	border-style:solid;
-	border-width: 0px 0 2px 0;
-	border-radius:5px;
+	border-width: 0 0 var(--border_width) 0;
+	border-radius:0 0 var(--border_rad);
+	z-index: 9999;
+	overflow: unset;
 }
+
+
 
 nav ul{
 	list-style: none;
 }
 
+
+nav ul ul {
+	flex-direction:column;
+	position:absolute;
+	height:auto;
+	width: max-content;
+	max-height: 0;
+	min-width: 100%;
+	max-width: 0vw;
+	top:calc(100% + var(--border_width));
+    pointer-events: none;
+    transition: all var(--anim-dur);
+    transition-delay: calc((var(--child-count) + 1) * var(--anim-delay));
+}
+
+nav ul li.drop > ul {
+	pointer-events: visible;
+    max-height: 100vh;
+    max-width: 100vw;
+    transition-delay: 0s;
+}
+
+
+nav ul ul ul {
+	transform:translateY(0px);
+    position:relative;
+    max-height: 0;
+}
+
+
+nav ul ul div.background {
+	position:absolute;
+	height: calc(100% - var(--border_width));
+	width: calc(100% - var(--border_width));
+	background-color:#fff9;
+	transform-origin: top left;
+	transform: scale(0);
+	opacity: 0%;
+    transition: all var(--anim-dur);
+    transition-delay: calc(var(--child-count) * var(--anim-delay));
+    
+    border-radius:var(--border_rad) 0 var(--border_rad) 0;
+    border-style: solid;
+    border-color:black;
+    border-width: 0 0 var(--border_width) var(--border_width);
+}
+
+nav ul ul ul div.background {
+	background-color: transparent;
+}
+
+nav li.drop > ul > div.background {
+	transform: none;
+	opacity: 100%;
+    transition-delay: 0s;
+}
+
+
+
+nav li {
+	flex-direction: column;
+	position:relative;
+	min-width: max-content;
+}
+
+nav ul ul > li {
+	--delay: calc(var(--anim-index) * var(--anim-delay));
+
+	transform-origin:center;
+	transform: 
+	    translateY(calc((-14px * 2 - 1.34em) * (var(--anim-index)))) 
+	    scale(0.8);
+	opacity: 0%;
+	transition-property: 
+	    all, 
+	    opacity, 
+	    transform, 
+	    margin-left; 
+	transition-duration: var(--anim-dur);
+	transition-delay: 
+	    0s, 
+	    calc(var(--delay) + var(--anim-dur)), 
+	    var(--delay), 
+	    calc(var(--delay) + var(--anim-dur));
+}
+
+nav ul ul li.drop > ul > li {
+	margin-left: 30px;
+}
+
+nav li.drop > ul > li {
+	--delay: calc((var(--anim-reverse-index) + 1) * var(--anim-delay));
+	transition-delay: 
+	    0s, 
+	    calc(var(--delay) - var(--anim-delay)), 
+	    var(--delay), 
+	    calc(var(--delay) + var(--anim-dur));
+	transform: none;
+	opacity: 100%;
+}
+
+
+
 nav a {
 	flex-direction:row;
 	align-items:flex-start;
-	padding: 0.5em 10px;
-	font-size: 24px;
+	padding: 10px;
+
 	color: white;
 	text-decoration: none;
-	transition: background 0.2s;
-	border-radius:30px 0 30px 0;
+
+	transition: background var(--anim-dur);
+	border-radius:var(--border_rad) 0 var(--border_rad) 0;
 	background-color: #0008;
 	margin:4px;
+	
 	cursor:pointer;
 	user-select: none;
 }
@@ -42,57 +158,18 @@ nav a:hover {
     background-color: #5eb9;
 }
 
+nav li.drop > a {
+	background-color: #5eb9;
+}
+
 nav li a div {
 	transform-origin: calc(100% - 0.5em);
 	transform: none;
 	justify-content:flex-end;
 	padding:0 0 0 0.5em;
-	transition: transform 0.3s;
+	transition: transform var(--anim-dur);
 }
 
-nav li {
-	position:relative;
-}
-
-nav ul ul {
-	flex-direction:column;
-	position:absolute;
-	height:auto;
-	width: max-content;
-	min-width: 100%;
-	top:100%;
-    pointer-events: none;
-}
-
-nav ul ul ul {
-	top: 0%;
-	left:100%;
-	min-width: unset;
-}
-
-nav li.drop > ul {
-    pointer-events: visible;
-}
-
-nav ul ul > li {
-	transform-origin:center;
-	transform: 
-	    translateY(calc(-100% * (var(--anim-index)))) 
-	    scale(0.8);
-	opacity: 0;
-	transition: all 200ms calc(var(--anim-index) * 100ms);
-}
-
-nav li.drop > ul > li {
-	transform: none;
-	opacity: 100%;
-	transition: all 200ms calc(var(--anim-reverse-index) * 100ms);
-}
-
-nav li.drop > a > div {
-	transform: rotateX(180deg);
-}
-
-nav li.drop li.drop > a > div {
-	transform: rotateY(180deg);
+nav li.drop > a div {
+	transform: rotateZ(90deg);
 }

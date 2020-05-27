@@ -1,67 +1,59 @@
 <html>
     <head>
 		<title>DuffyCod's Webpage</title>
-		<style>
-			body , body * {
-                display:flex;
-                flex-direction:column;
-				margin: 0;
-				padding: 0;
-			}
-
-			body {
-				background: #eee
-			}
-
-			.main_section {
-                overflow: overlay;
-                flex: 1 1;
-			}
-
-			.main_section h1 {
-				font-family: Lucida Console;
-				font-size: 50px;
-			}
-
-			script, style {
-				display:none;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="main.css">
 		<link rel="stylesheet" type="text/css" href="nav.css">
 		<meta charset="utf-8">
+		<style> html {scroll-behavior: smooth;} </style>
 	</head>
 
 	<body>
 		<nav>
+		    <!--&#x2B9F: up arrow -->
+		    <!--&#x2B9E: right arrow -->
 			<ul>
-				<li><a href="#">Link 1</a></li>
-				<li><a>Link 2<div>&#x2B9F</div></a>
+				<li><a href="#">Top</a></li>
+				<li><a         >Quick Links<div>&#x2B9E</div></a>
 					<ul>
-						<li><a href="#">Link 2.1</a></li>
-						<li><a>Link 2.2<div>&#x2B9E</div></a>
-						    <ul>
-						        <li><a>Link 2.2.1<div>&#x2B9E</div></a>
-							    	<ul>
-							        	<li><a href="#">Link 2.2.1.1</a></li>
-							   		</ul>
+					    <div class="background"></div>
+						<li><a>Sections<div>&#x2B9E</div></a>
+							<ul>
+							    <div class="background"></div>
+								<li><a href="#section1">Section 1</a>
+								<li><a href="#section2">Section 2</a></li>
+								</ul>
 								</li>
-								<li><a href="#">Link 2.2.2</a></li>
-						    </ul>
+						</ul>
 						</li>
-						<li><a href="#">Link 2.3</a></li>
-					</ul>
-				</li>
-				<li><a>Link 3<div>&#x2B9F</div></a>
+				<li><a>Experiments<div>&#x2B9E</div></a>
 					<ul>
-						<li><a href="#">Link 3.1</a></li>
-						<li><a href="#">Link 3.2</a></li>
-					</ul>
-				</li>
+					    <div class="background"></div>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a>Submenu 1<div>&#x2B9E</div></a>
+					        <ul>
+					        <div class="background"></div>
+                                <li><a href="#">Link 1.1</a></li>
+                                <li><a href="#">Submenu 1.1<div>&#x2B9E</div></a>
+                                    <ul>
+										<div class = background></div>
+										<li><a href="#">Link 1.1.1</a></li>
+										<li><a href="#">Longer Link 1.1.2</a></li>
+										<li><a href="#">Link 1.1.3</a></li>
+										<li><a href="#">Super Long Link 1.1.4</a></li>
+										<li><a href="#">Link 1.1.5</a></li>
+										</ul>
+                                        </li>
+                                 <li><a href="#">Longer Link 1.2</a></li>
+					        </ul>
+					        </li>
+					    <li><a href="#">Link 3</a></li>
+						</ul>
+						</li>
 				<li><a href="#">Link 4</a></li>
 			</ul>
 		</nav>
-
-		<section class="main_section">
+		<main class="main_section">
 			<div style="
 					flex: 0.5 1;
 					justify-content: center;
@@ -69,69 +61,45 @@
 					padding: 20px;
 					min-height: calc(100vh - 100px);
 					margin: 60px 0 0px 0;
-			        ">
+			        " class = "greeter">
 				
 				<h1 style="padding: 30px 0px;">Hello World!</h1>
     			<p> This is my first GitHub page! </p>
 			</div>
+            
 
-			<div style="
-			        flex-direction:row;
-			        justify-content: left;
-			        flex:1 1;
-			        ">
-			    <div style="
-			        flex: 0.8 1;
-			        background: white;
-			        margin: 10px;
-			        border-radius: 10px;
-			        padding: 10px;
-			        ">
-			    	Some article might go here.
-				</div>
+			<div class = "content">
 
-				<style>
-				    .tile-item {
-				        width: 100%;
-				        height:100px;
-				        background:#aaa;
-				        align-items: center;
-				        justify-content: center;
-				        margin: 10px 0px;
-				    }
-				</style>
+			    <a class="jump" id = "section1"></a>
 
-				<div style="
-				    flex: 0.2 1;
-				    margin: 10px;">
-				    A sidebar here.
-				    <div class="tile-item">
-				    	Some tile.
-					</div>
-					<div class="tile-item">
-					     Some tile.
-					</div>
-					<div class="tile-item">
-					     Some tile.
-					</div>
-					<div class="tile-item">
-					     Some tile.
-					</div>
-					<div class="tile-item">
-					     Some tile.
-					</div>
-					<div class="tile-item">
-					     Some tile.
-					</div>
-					<div class="tile-item">
-					     Some tile.
-					</div>
-					<div class="tile-item">
-					     Some tile.
-					</div>
-				</div>
+			    <article>
+    Some text might go here.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed enim lectus, varius mattis tortor eu, sodales porta urna. Cras in dapibus lorem. Donec dignissim velit scelerisque risus dapibus euismod. Donec consequat lacinia molestie. Vestibulum scelerisque mattis mauris, ut sodales lorem. Aliquam iaculis pretium dignissim. Vivamus egestas lacinia lorem, ac mollis diam condimentum eu. Curabitur finibus, erat vitae lobortis faucibus, metus quam elementum dui, tincidunt sodales mi erat ut nulla.
+
+    Mauris nec ligula tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque et quam diam. Morbi hendrerit nunc vel massa volutpat, ac mollis libero laoreet. Nullam eros libero, sodales non venenatis id, hendrerit quis erat. Sed ac dui enim. Nulla pulvinar ante in venenatis ultrices. Ut bibendum libero dictum sodales tincidunt. Morbi semper metus massa, vitae porttitor purus vulputate ac. Nam efficitur sem nec semper egestas. In risus purus, lacinia id posuere a, mollis sed purus. Proin at iaculis purus. In hac habitasse platea dictumst. Aenean hendrerit tortor ac risus lobortis, ut ullamcorper augue pellentesque. Vestibulum ut dictum mauris.
+
+    Aliquam cursus congue auctor. Morbi lorem arcu, accumsan et varius et, convallis id mi. Maecenas eleifend arcu vitae felis eleifend ultricies. Aliquam cursus in felis sed lacinia. Sed vehicula orci a turpis semper consectetur. Sed facilisis sed tellus sit amet bibendum. Maecenas risus velit, sodales eu eros et, auctor suscipit odio.
+
+:)
+				</article>
 			</div>
-    	</section>
+			<div class="content">
+			    <a class = "jump" id = "section2"></a>
+                <article>
+        
+<pre style="white-space:pre-wrap;">
+    Some more filler text.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et euismod urna, ac tristique dolor. Sed sed felis vitae ligula varius consectetur quis ac nibh. Cras id hendrerit mi. Cras ac augue at urna iaculis ullamcorper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In ac turpis nec velit consequat fermentum vitae sed ipsum. Pellentesque euismod vulputate volutpat. Curabitur commodo dolor sit amet felis hendrerit facilisis. Donec et imperdiet eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas porttitor felis sit amet lectus tempus, et lobortis dolor faucibus.
+
+    Mauris id tincidunt massa, nec fringilla tortor. Integer porta vulputate aliquam. Etiam ac turpis lectus. Integer id nisi sed tortor consequat vulputate. Aenean fringilla velit risus, id imperdiet urna viverra at. Quisque tempus tellus rhoncus fringilla mollis. Donec sit amet tortor at ipsum egestas semper vitae eu magna. Vestibulum ex lacus, aliquet ac placerat vitae, lobortis at dui. Etiam magna dui, posuere in mauris et, tincidunt volutpat risus. Fusce quis iaculis arcu. Phasellus maximus erat lacus, vitae mollis elit porttitor eget. Quisque laoreet ipsum neque, in eleifend orci auctor sit amet. Nulla tortor dui, tristique a vehicula sit amet, porttitor ut sem. Maecenas ornare sagittis condimentum.
+
+    Integer sit amet ipsum ac tellus euismod ultrices. Donec et sapien vel felis luctus malesuada. Etiam non nibh eget sem venenatis accumsan. Etiam quis semper dolor, imperdiet suscipit felis. Vivamus gravida, augue sit amet efficitur rutrum, lectus nunc dapibus nulla, eget vehicula nibh odio id ligula. Duis vel sollicitudin nulla. In hac habitasse platea dictumst. Sed mollis dictum volutpat.
+</pre>
+                </article>
+			</div>
+    	</main>
     	
         <script>
             var menus = document.querySelectorAll("nav > ul ul");
@@ -141,6 +109,7 @@
 					elements[i].style.setProperty("--anim-index", i);
 					elements[i].style.setProperty("--anim-reverse-index", elements.length - i - 1);
 				}
+				menus[l].style.setProperty("--child-count",elements.length);
 			}
 
             
