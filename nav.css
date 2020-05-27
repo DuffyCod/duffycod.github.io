@@ -14,7 +14,7 @@ nav {
 	--border_width: 2px;
 	--anim-delay: 50ms;
 	--anim-dur: 200ms;
-	position: fixed;
+	position: absolute;
 	width:100%;
 	min-width: max-content;
 	font:menu;
@@ -43,9 +43,10 @@ nav ul ul {
 	max-height: 0;
 	min-width: 100%;
 	max-width: 0vw;
-	top:calc(100% + var(--border_width));
+	top: calc(100% + var(--border_width));
     pointer-events: none;
-    transition: all var(--anim-dur);
+    transition-property: all;
+    transition-duration: var(--anim-dur);
     transition-delay: calc((var(--child-count) + 1) * var(--anim-delay));
 }
 
@@ -101,7 +102,7 @@ nav li {
 
 nav ul ul > li {
 	--delay: calc(var(--anim-index) * var(--anim-delay));
-
+    pointer-events: none;
 	transform-origin:center;
 	transform: 
 	    translateY(calc((-14px * 2 - 1.34em) * (var(--anim-index)))) 
@@ -111,7 +112,7 @@ nav ul ul > li {
 	    all, 
 	    opacity, 
 	    transform, 
-	    margin-left; 
+	    margin-left;
 	transition-duration: var(--anim-dur);
 	transition-delay: 
 	    0s, 
@@ -124,7 +125,7 @@ nav ul ul li.drop > ul > li {
 	margin-left: 30px;
 }
 
-nav li.drop > ul > li {
+nav li.drop > ul > li{
 	--delay: calc((var(--anim-reverse-index) + 1) * var(--anim-delay));
 	transition-delay: 
 	    0s, 
@@ -133,6 +134,7 @@ nav li.drop > ul > li {
 	    calc(var(--delay) + var(--anim-dur));
 	transform: none;
 	opacity: 100%;
+	pointer-events: visible;
 }
 
 
